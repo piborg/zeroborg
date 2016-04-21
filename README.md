@@ -146,6 +146,7 @@ You can use that same string to check what button has been pressed.
 
 `zbSaveIR.py` allows you to create named constants for the buttons on your remote.
 It works by the following sequence:
+
 1. Run the script
 2. Hold the button you wish to name (keep holding)
 3. Type the name for this button and press ENTER
