@@ -15,12 +15,14 @@ There are examples for all of the various features of the ZeroBorg:
 ## Downloading the code
 To get the code we will clone this repository to the Raspberry Pi.
 In a terminal run the following commands
+
 ```bash
 cd ~
 git clone https://github.com/piborg/zeroborg.git
 cd zeroborg
 ./install.sh
 ```
+
 After the installer has completed you may need to restart the Raspberry Pi.
 If you have the GUI setup there should be a shortcut to the demo GUI on the desktop.
 
@@ -29,6 +31,7 @@ This script provides the various functions used by all of the other examples.
 It does all of the I2C handling so that you can concentrate on controlling your robot :)
 
 At its simplest you can setup the ZeroBorg using these commands in your Python script:
+
 ```import ZeroBorg
 ZB = ZeroBorg.ZeroBorg()
 ZB.Init()
@@ -36,39 +39,48 @@ ZB.ResetEpo()
 ```
 
 You can then control motors with:
+
 ```ZB.SetMotor1(x)
 ZB.SetMotor2(x)
 ZB.SetMotor3(x)
 ZB.SetMotor4(x)
 ZB.MotorsOff()
 ```
+
 where `x` is a value between `1.0` (full forward) and `-1.0` (full reverse), use `0.0` for off.
 
 You can read the IR sensor for messages using:
+
 ```if ZB.HasNewIrMessage():
     x = ZB.GetIrMessage()
 else:
     x = ""
 ```
+
 `x` will contain a string sequence such as `"FAD6DAD5"` which represents the held button on the remote.
 
 You can read the analog pins using:
+
 ```x = ZB.GetAnalog1()
 x = ZB.GetAnalog2()
 ```
+
 `x` will contain the voltage seen on the pin, a value between `0.0` and `3.3`.
 
 To get a full list of functions use this Python code:
+
 ```import ZeroBorg
 ZB = ZeroBorg.ZeroBorg()
 ZB.Help()
 ```
+
 You can use SHIFT + PAGE UP and SHIFT + PAGE DOWN to scroll the terminal output to view all of the commands
 
 ## The GUI - zbGui.py
 ![](zeroborg-gui.png?raw=true)
 
 Can be run from the shortcut on the desktop or using
+
 ```cd ~/zeroborg
 ./zbGui.py
 ```
@@ -84,10 +96,13 @@ The button name decoding comes from the codes provided by `zbIrButtonMap.py`.
 ## Joystick motor control - zbJoystick.py and zbMecanumJoy.py
 These scripts use a joystick input and drive a set of robot wheels.
 They can be run using
+
 ```cd ~/zeroborg
 ./runJoystick.sh
 ```
+
 and
+
 ```cd ~/zeroborg
 ./runMecanumJoy.sh
 ```
@@ -102,10 +117,13 @@ The mecanum wheel script is the same one we used in the Kickstarter video and on
 
 ## Stepper motor control - zbStepper.py and zbStepperSequence.py
 These scripts drive stepper motors and can be run using
+
 ```cd ~/zeroborg
 ./zbStepper.py
 ```
+
 and
+
 ```cd ~/zeroborg
 ./zbStepperSequence.py
 ```
@@ -121,10 +139,13 @@ The script runs a set pattern of movements at different speeds.
 ## Reading remote signals - zbReadIR.py and zbSaveIR.py
 These scripts show how the IR remote sensor can be read and programmed
 They can be run using
+
 ```cd ~/zeroborg
 ./zbReadIR.py
 ```
+
 and
+
 ```cd ~/zeroborg
 ./zbSaveIR.py
 ```
@@ -142,11 +163,14 @@ It works by the following sequence:
 6. Press ENTER without typing a name to finish
 
 The names are saved into the `zbIrButtonMap.py` script like this:
+
 ```IR_info = "FAD6DAD5"
 IR_power = "FB5AD5AA"
 IR_wide = "FB5B6D56AD"
 ```
+
 In order to use the names in your own script you can then check the value from `GetIrMessage` like this:
+
 ```import zbIrButtonMap.py as Buttons
 # ...
 if ZB.HasNewIrMessage():
@@ -172,6 +196,7 @@ There are some examples already for different remotes:
 ## Controlling a robot with a remote control - zbRemote.py
 This script is exactly like the joystick example, but using a TV remote :)
 Can be run using
+
 ```cd ~/zeroborg
 ./zbRemote.py
 ```
@@ -190,6 +215,7 @@ When no button is pressed the robot will stop, meaning he should also stop if he
 ## Reading the analog pins - zbReadAnalog.py
 This script displays the two analog readings in volts.
 Can be run using
+
 ```cd ~/zeroborg
 ./zbReadAnalog.py
 ```
