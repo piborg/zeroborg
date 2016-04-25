@@ -5,25 +5,25 @@ This module is designed to communicate with the ZeroBorg
 
 Use by creating an instance of the class, call the Init function, then command as desired, e.g.
 import ZeroBorg
-PBR = ZeroBorg.ZeroBorg()
-PBR.Init()
-# User code here, use PBR to control the board
+ZB = ZeroBorg.ZeroBorg()
+ZB.Init()
+# User code here, use ZB to control the board
 
 Multiple boards can be used when configured with different I²C addresses by creating multiple instances, e.g.
 import ZeroBorg
-PBR1 = ZeroBorg.ZeroBorg()
-PBR2 = ZeroBorg.ZeroBorg()
-PBR1.i2cAddress = 0x44
-PBR2.i2cAddress = 0x45
-PBR1.Init()
-PBR2.Init()
-# User code here, use PBR1 and PBR2 to control each board separately
+ZB1 = ZeroBorg.ZeroBorg()
+ZB2 = ZeroBorg.ZeroBorg()
+ZB1.i2cAddress = 0x44
+ZB2.i2cAddress = 0x45
+ZB1.Init()
+ZB2.Init()
+# User code here, use ZB1 and ZB2 to control each board separately
 
 For explanations of the functions available call the Help function, e.g.
 import ZeroBorg
-PBR = ZeroBorg.ZeroBorg()
-PBR.Help()
-See the website at www.piborg.org/picoborgreverse for more details
+ZB = ZeroBorg.ZeroBorg()
+ZB.Help()
+See the website at www.piborg.org/zeroborg for more details
 """
 
 # Import the libraries we need
@@ -219,8 +219,8 @@ Wrapper used by the ZeroBorg instance to print messages, will call printFunction
 NoPrint(message)
 
 Does nothing, intended for disabling diagnostic printout by using:
-PBR = ZeroBorg.ZeroBorg()
-PBR.printFunction = PBR.NoPrint
+ZB = ZeroBorg.ZeroBorg()
+ZB.printFunction = ZB.NoPrint
         """
         pass
 
