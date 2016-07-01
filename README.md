@@ -17,8 +17,10 @@ To get the code we will clone this repository to the Raspberry Pi.
 In a terminal run the following commands
 ```bash
 cd ~
+sudo apt-get -y install git
 git clone https://github.com/piborg/zeroborg.git
 cd zeroborg
+chmod +x *.sh
 ./install.sh
 ```
 After the installer has completed you may need to restart the Raspberry Pi.
